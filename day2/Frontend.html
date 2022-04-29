@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        #container{
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            
+            gap:30px;
+        }
+        #container>div{
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            
+
+        }
+        h3,h4,p{
+            margin:-5px 10px 10px 10px;
+            
+        }
+        #container>div>img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="row">
+        <div><a href="Backend.html">Backend</a></div>
+        <div><a href="Frontend.html">Frontend</a></div>
+    </div>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    var employdetails1=JSON.parse(localStorage.getItem("employdetails"))
+    // console.log(employdetails1)
+   employdetails1.forEach(function(el){
+    //    console.log("hii")
+       box=document.createElement("div")
+
+
+       image1=document.createElement("img")
+       image1.setAttribute("src",el.image)
+
+       name1=document.createElement("h3")
+       name1.innerText=el.name
+
+       email1=document.createElement("h4")
+       email1.innerText=el.email
+
+       position1=document.createElement("p")
+       position1.innerText=el.position
+
+       box.append(image1,name1,email1,position1)
+       document.querySelector("#container").append(box)
+
+   })
+</script>

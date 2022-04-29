@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        #row{
+            margin-bottom: 40px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="row">
+        <div><a href="Backend.html">Backend</a></div>
+        <div><a href="Frontend.html">Frontend</a></div>
+    </div>
+   <form>
+    <input type="text" id="name" placeholder="enter name">
+    <input type="text" id="image" placeholder="enter image">
+    <input type="text" id="email" placeholder="enter email">
+    <input type="text" id="position" placeholder="enter position">
+    <input type="submit">
+   </form>
+</body>
+</html>
+<script>
+    var arr=JSON.parse(localStorage.getItem("employdetails"))||[];
+    document.querySelector("form").addEventListener("submit",myfunction)
+    function myfunction(){
+        event.preventDefault()
+        var obj={}
+        name1=document.querySelector("#name").value;
+        obj.name=name1
+        image1=document.querySelector("#image").value
+        obj.image=image1
+        email1=document.querySelector("#email").value
+        obj.email=email1
+        position1=document.querySelector("#position").value
+        obj.position=position1
+        arr.push(obj)
+        localStorage.setItem("employdetails",JSON.stringify(arr))
+        console.log(arr)
+ }
+</script>
